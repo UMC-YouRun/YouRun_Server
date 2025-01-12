@@ -1,5 +1,6 @@
 package com.umc.yourun.domain.mapping;
 
+import com.umc.yourun.domain.BaseEntity;
 import com.umc.yourun.domain.Crew;
 import com.umc.yourun.domain.User;
 import com.umc.yourun.domain.enums.CrewRole;
@@ -26,7 +27,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class UserCrew {
+public class UserCrew extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userCrewId;
