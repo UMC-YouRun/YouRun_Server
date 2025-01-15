@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import com.umc.yourun.domain.Crew;
-import com.umc.yourun.dto.CrewRequestDTO;
-import com.umc.yourun.dto.CrewResponseDTO;
+import com.umc.yourun.dto.crew.CrewRequestDTO;
+import com.umc.yourun.dto.crew.CrewResponseDTO;
 
 public class CrewConverter {
 	public static CrewResponseDTO.RegisterResultDTO toRegisterResultDTO(Crew crew){

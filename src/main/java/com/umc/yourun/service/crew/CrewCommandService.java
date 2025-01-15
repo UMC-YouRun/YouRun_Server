@@ -1,7 +1,7 @@
 package com.umc.yourun.service.crew;
 
 import com.umc.yourun.domain.Crew;
-import com.umc.yourun.dto.CrewRequestDTO;
+import com.umc.yourun.dto.crew.CrewRequestDTO;
 
 import jakarta.validation.Valid;
 
