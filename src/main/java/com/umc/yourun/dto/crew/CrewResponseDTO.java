@@ -1,4 +1,4 @@
-package com.umc.yourun.dto;
+package com.umc.yourun.dto.crew;
 
 import java.time.LocalDateTime;
 

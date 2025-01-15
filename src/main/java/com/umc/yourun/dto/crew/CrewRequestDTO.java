@@ -1,7 +1,4 @@
-package com.umc.yourun.dto;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+package com.umc.yourun.dto.crew;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
