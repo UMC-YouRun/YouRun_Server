@@ -3,6 +3,8 @@ package com.umc.yourun.service.crew;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.umc.yourun.config.exception.ErrorCode;
+import com.umc.yourun.config.exception.custom.CrewException;
 import com.umc.yourun.converter.CrewConverter;
 import com.umc.yourun.converter.mapping.UserCrewConverter;
 import com.umc.yourun.domain.Crew;
@@ -32,7 +34,7 @@ public class CrewCommandServiceImpl implements CrewCommandService {
 	@Transactional
 	public Crew register(CrewRequestDTO.RegisterDTO request) {
 		Crew newCrew=CrewConverter.toCrew(request);
-		User admin=userRepository.findById(request.adminId()).orElseThrow();//TODO:예외처리 필요
+		User admin=userRepository.findById(request.adminId()).orElseThrow(()->new CrewException(ErrorCode.DUPLICATE_CREW_NAME));//TODO:예외처리 필요
 		UserCrew userCrew= UserCrewConverter.toUserCrew(admin,newCrew, CrewRole.ADMIN, UserCrewStatus.APPROVED);
 		newCrew.addUserCrew(userCrew);
 		userCrewRepository.save(userCrew);
