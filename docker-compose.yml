@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: .
+    container_name: backend
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      # 로컬 개발 환경에서는 MySQL 컨테이너 사용
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/yourun
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=yourun
+      - MYSQL_USER=dev_user
+      - MYSQL_PASSWORD=dev_password
+    ports:
+      - "3306:3306"
